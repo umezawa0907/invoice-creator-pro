@@ -28,11 +28,20 @@ export const metadata: Metadata = {
     siteName: '請求書さくっと',
     locale: 'ja_JP',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: '請求書さくっと - 無料で簡単に請求書作成',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '請求書さくっと - 無料で簡単に請求書作成',
     description: '会員登録不要で請求書を無料で作れます。源泉徴収税の自動計算・適格請求書対応。',
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -55,6 +64,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
