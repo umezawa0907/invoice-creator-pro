@@ -211,14 +211,14 @@ export const InvoiceForm: React.FC<InvoiceFormProps> = ({
                   />
                 )}
                 <div className="mt-4 p-3 bg-green-50 rounded text-sm text-green-800">
-                  ✅ デフォルト請求元情報が選択されています
+                  ✅ デフォルト発行者情報が選択されています
                 </div>
               </div>
             ) : (
               <div className="p-4 bg-yellow-50 rounded text-yellow-800">
-                ⚠️ 請求元情報が設定されていません。
+                ⚠️ 発行者情報が設定されていません。
                 <a href="/profile" className="underline ml-2">
-                  請求元情報管理
+                  発行者情報
                 </a>
                 から設定してください。
               </div>

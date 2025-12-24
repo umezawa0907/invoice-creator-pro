@@ -46,7 +46,7 @@ export const ProfileManager: React.FC = () => {
     const id = await addProfile(profileData);
     
     if (id) {
-      alert('✅ 請求元情報を保存しました！');
+      alert('✅ 発行者情報を保存しました！');
       setViewMode('list');
     } else {
       alert('❌ プロフィールの保存に失敗しました');
@@ -68,7 +68,7 @@ export const ProfileManager: React.FC = () => {
     });
 
     if (success) {
-      alert('✅ 請求元情報を更新しました！');
+      alert('✅ 発行者情報を更新しました！');
       setViewMode('list');
       setEditingProfile(undefined);
     } else {
@@ -150,13 +150,13 @@ export const ProfileManager: React.FC = () => {
         {/* ヘッダー */}
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">請求元情報管理</h2>
+            <h2 className="text-2xl font-bold text-gray-900">発行者情報</h2>
             <p className="text-gray-600 mt-1">
               発行者情報を保存して、請求書作成を効率化しましょう
             </p>
           </div>
           <Button onClick={() => setViewMode('create')}>
-            ➕ 新しい請求元情報
+            ➕ 新しい発行者情報
           </Button>
         </div>
 
@@ -189,7 +189,7 @@ export const ProfileManager: React.FC = () => {
               </h3>
               <div className="text-sm text-yellow-800 space-y-2">
                 <p className="font-medium">
-                  請求元情報は<strong>あなたのブラウザ内にのみ</strong>保存されます。
+                  発行者情報は<strong>あなたのブラウザ内にのみ</strong>保存されます。
                 </p>
                 <p>
                   以下の場合、データが消失します：
@@ -214,7 +214,7 @@ export const ProfileManager: React.FC = () => {
             💾 データのバックアップ（推奨）
           </h3>
           <p className="text-sm text-gray-600 mb-4">
-請求元情報をJSONファイルとしてエクスポート・インポートできます。<br />
+発行者情報をJSONファイルとしてエクスポート・インポートできます。<br />
             <strong>データ消失防止</strong>のため、定期的にエクスポートして保存しておくことをお勧めします。
           </p>
           <div className="flex gap-3">
@@ -253,13 +253,13 @@ export const ProfileManager: React.FC = () => {
           <div className="text-center py-12 bg-gray-50 rounded-lg">
             <div className="text-6xl mb-4">📝</div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              請求元情報がありません
+              発行者情報がありません
             </h3>
             <p className="text-gray-600 mb-4">
-              最初の請求元情報を作成して、請求書作成を始めましょう
+              最初の発行者情報を作成して、請求書作成を始めましょう
             </p>
             <Button onClick={() => setViewMode('create')}>
-              ➕ 請求元情報を作成
+              ➕ 発行者情報を作成
             </Button>
           </div>
         ) : (
@@ -309,7 +309,7 @@ export const ProfileManager: React.FC = () => {
       {/* ヘッダー */}
       <div>
         <h2 className="text-2xl font-bold text-gray-900">
-          {viewMode === 'create' ? '新しい請求元情報作成' : '請求元情報編集'}
+          {viewMode === 'create' ? '新しい発行者情報作成' : '発行者情報編集'}
         </h2>
         <p className="text-gray-600 mt-1">
           請求書に記載する発行者情報を入力してください

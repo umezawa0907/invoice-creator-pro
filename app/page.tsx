@@ -21,7 +21,7 @@ export default function HomePage() {
             <nav className="flex gap-4">
               <Link href="/profile">
                 <Button variant="ghost" size="sm">
-                  請求元情報管理
+                  発行者情報
                 </Button>
               </Link>
             </nav>
