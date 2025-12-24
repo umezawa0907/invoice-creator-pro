@@ -11,6 +11,12 @@ import { ProfileCard } from './ProfileCard';
 import { ProfileForm } from './ProfileForm';
 import { Button } from '@/components/ui/Button';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 type ViewMode = 'list' | 'create' | 'edit';
 
 export const ProfileManager: React.FC = () => {
@@ -48,6 +54,13 @@ export const ProfileManager: React.FC = () => {
     if (id) {
       alert('✅ 発行者情報を保存しました！');
       setViewMode('list');
+
+      // GTM用カスタムイベント送信
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'profile_saved',
+        });
+      }
     } else {
       alert('❌ プロフィールの保存に失敗しました');
     }
@@ -71,6 +84,13 @@ export const ProfileManager: React.FC = () => {
       alert('✅ 発行者情報を更新しました！');
       setViewMode('list');
       setEditingProfile(undefined);
+
+      // GTM用カスタムイベント送信
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'profile_saved',
+        });
+      }
     } else {
       alert('❌ プロフィールの更新に失敗しました');
     }

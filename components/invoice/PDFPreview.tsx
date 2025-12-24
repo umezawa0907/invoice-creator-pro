@@ -9,6 +9,12 @@ import { InvoiceData, IssuerProfile } from '@/types';
 import { PDFService } from '@/services/PDFService';
 import { Button } from '@/components/ui/Button';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 interface PDFPreviewProps {
   invoice: InvoiceData;
   issuer: IssuerProfile;
@@ -43,6 +49,13 @@ export const PDFPreview: React.FC<PDFPreviewProps> = ({
         invoice.client.name
       );
       PDFService.downloadPDF(blob, filename);
+
+      // GTM用カスタムイベント送信
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          event: 'pdf_generated',
+        });
+      }
     } catch (error) {
       console.error('PDF download failed:', error);
       alert('PDFダウンロードに失敗しました');
