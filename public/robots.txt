@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# 主要ページ
+Allow: /
+Allow: /invoice/create
+Allow: /profile
+Allow: /glossary
+
+# 用語集ページ
+Allow: /glossary/tax/withholding-tax
+Allow: /glossary/invoice/invoice-basics
+Allow: /glossary/invoice/qualified-invoice  
+Allow: /glossary/tax/consumption-tax
+
+# サイトマップの場所
+Sitemap: https://invoice-sakutto.com/sitemap.xml
